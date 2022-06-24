@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Altar : MonoBehaviour
 {
+    public GameObject caixaAberta;
+    public GameObject caixaFechada;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,27 @@ public class Altar : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        print(other.name);
+        // print(other.name);
+
+        if (other.CompareTag("Caixa")) {
+            // Dentro deste bloco, detectamos que
+            // a caixa está em cima do altar
+
+            caixaFechada.SetActive(false);
+            caixaAberta.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        // print(other.name);
+
+        if (other.CompareTag("Caixa")) {
+            // Dentro deste bloco, detectamos que
+            // a caixa está acabou de sair do altar
+
+            caixaFechada.SetActive(true);
+            caixaAberta.SetActive(false);
+        }
     }
 }
