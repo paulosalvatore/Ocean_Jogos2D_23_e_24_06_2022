@@ -7,6 +7,8 @@ public class Altar : MonoBehaviour
     public GameObject caixaAberta;
     public GameObject caixaFechada;
 
+    public AudioSource chestOpenSfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,8 @@ public class Altar : MonoBehaviour
 
             caixaFechada.SetActive(false);
             caixaAberta.SetActive(true);
+
+            chestOpenSfx.Play();
         }
     }
 
